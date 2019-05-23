@@ -1,0 +1,2 @@
+bundles:
+  - HackOroGrapesJSBundle:Form:fields.html.twig

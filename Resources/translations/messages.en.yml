@@ -1,0 +1,23 @@
+hackoro:
+  grapesjs:
+    grapesjspage:
+      entity_label: 'GrapesJS Content Page'
+      entity_plural_label: 'GrapesJS Content Pages'
+  grapes_js:
+    content_type.label: 'GrapesJS Content Page'
+    entity_label: 'GrapesJS Content Page'
+    entity_plural_label: 'GrapesJS Content Pages'
+    sections:
+      general: 'General'
+      content: 'Content'
+    controller:
+      page.saved.message: 'GrapesJS Page has been saved'
+    id.singular_label: 'ID'
+    title.singular_label: 'Title'
+    content.singular_label: 'HTML Content'
+    css.singular_label: 'CSS'
+    created_at.singular_label: 'Created At'
+    updated_at.singular_label: 'Updated At'
+    delete_label: 'Delete'
+    update_label: 'Edit'
+    page.choose: 'Select a GrapesJS Page'

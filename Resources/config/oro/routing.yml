@@ -1,0 +1,11 @@
+hackoro_grapes_js:
+    resource:     "@HackOroGrapesJSBundle/Controller/GrapesJSController.php"
+    type:         annotation
+    prefix:       /grapesjs
+
+hackoro_grapesjs_frontend_page:
+    resource:     "@HackOroGrapesJSBundle/Controller/Frontend/GrapesJSFrontendController.php"
+    type:         annotation
+    prefix:       /grapesjs/page
+    options:
+        frontend: true

@@ -1,0 +1,101 @@
+datagrids:
+    grapesjs-grid:
+        acl_resource: hackoro_grapes_js_view
+        source:
+            type: orm
+            query:
+                select:
+                    - gp.id
+                    - gp.title
+                    - gp.createdAt
+                    - gp.updatedAt
+                from:
+                    - { table: HackOro\GrapesJSBundle\Entity\GrapesJSPage, alias: gp }
+        columns:
+            id:
+                label: hackoro.grapes_js.id.singular_label
+                renderable: false
+            title:
+                label: hackoro.grapes_js.title.singular_label
+            createdAt:
+                label: hackoro.grapes_js.created_at.singular_label
+                frontend_type: datetime
+            updatedAt:
+                label: hackoro.grapes_js.updated_at.singular_label
+                frontend_type: datetime
+        properties:
+            id: ~
+            view_link:
+                type: url
+                route: hackoro_grapesjs_page_view
+                params: [id]
+            update_link:
+                type: url
+                route: hackoro_grapesjs_page_update
+                params: [id]
+        actions:
+            view:
+                type: navigate
+                label: View
+                link: view_link
+                icon: eye
+                rowAction: true
+            update:
+                type: navigate
+                label: Update
+                link: update_link
+                icon: edit
+                rowAction: false
+        sorters:
+            columns:
+                createdAt:
+                    data_name: gp.createdAt
+                    type: datetime
+                updatedAt:
+                    data_name: gp.updateAt
+                    type: datetime
+        filters:
+            columns:
+                title:
+                    data_name: gp.title
+                    type: string
+                createdAt:
+                    data_name: gp.createdAt
+                    type: datetime
+                updatedAt:
+                    data_name: gp.updatedAt
+                    type: datetime
+
+    grapesjs-page-select-grid:
+        acl_resource: hackoro_grapesjs_page_view
+        options:
+            entityHint: 'GrapesJS Pages'
+        source:
+            type:         orm
+            query:
+                select:
+                    - gp.id
+                    - gp.title
+                from:
+                    - { table: HackOro\GrapesJSBundle\Entity\GrapesJSPage, alias: gp }
+        columns:
+            id:
+                label: hackoro.grapes_js.id.singular_label
+            title:
+                label: hackoro.grapes_js.title.singular_label
+        sorters:
+            columns:
+                id:
+                    data_name: gp.id
+                title:
+                    data_name: gp.title
+            default:
+                id: '%oro_datagrid.extension.orm_sorter.class%::DIRECTION_ASC'
+        filters:
+            columns:
+                id:
+                    type:      number
+                    data_name: gp.id
+                title:
+                    type:      string
+                    data_name: gp.title

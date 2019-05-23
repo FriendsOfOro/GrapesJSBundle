@@ -1,0 +1,21 @@
+{% block grapesjs_content_variant_widget %}
+    <div class="section-content">
+        <span class="widget-title">GrapesJS Page</span>
+    </div>
+{% endblock %}
+
+{% block grapes_js_page_widget %}
+
+    {% set grapesJSEditorComponent = 'hackorograpesjs/js/app/components/grapesjs-editor-component' %}
+
+    <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
+    <div class=""
+         data-page-component-module="{{ grapesJSEditorComponent }}">
+    </div>
+
+    <div id="gjsContainer" style="height:0px; overflow:hidden"></div>
+
+    {{ form_widget(form.content) }}
+    {{ form_widget(form.css) }}
+
+{% endblock %}

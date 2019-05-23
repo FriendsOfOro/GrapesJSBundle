@@ -1,0 +1,53 @@
+{% extends 'OroUIBundle:actions:view.html.twig' %}
+
+{% oro_title_set({params : {"%title%": entity.title }}) %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+        'entity': entity,
+        'indexPath': path('hackoro_grapesjs_page_index'),
+        'indexLabel': 'hackoro.grapes_js.entity_plural_label'|trans,
+        'entityTitle': entity.title|default('N/A'|trans)
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set pageInfo %}
+        <div class="row-fluid form-horizontal">
+            <div class="responsive-block">
+                {{ UI.renderProperty('hackoro.grapes_js.title.singular_label'|trans, entity.title) }}
+            </div>
+        </div>
+    {% endset %}
+
+    {% set pageContent %}
+        <style type="text/css">
+            {{ entity.css }}
+        </style>
+        <div class="row-fluid form-horizontal">
+            <div class="responsive-block">
+                <div class="grapesjs-block">
+                    {{ entity.content|oro_html_sanitize }}
+                </div>
+            </div>
+        </div>
+    {% endset %}
+
+    {% set dataBlocks = [
+        {
+            'title': 'hackoro.grapes_js.sections.general'|trans,
+            'class': 'active',
+            'subblocks': [{'data' : [pageInfo]}]
+        },
+        {
+            'title': 'hackoro.grapes_js.sections.content'|trans,
+            'class': 'active',
+            'subblocks': [{'data' : [pageContent]}]
+        }
+    ] %}
+
+    {% set id = 'grapesjs-page-view' %}
+    {% set data = {'dataBlocks': dataBlocks} %}
+    {{ parent() }}
+{% endblock content_data %}

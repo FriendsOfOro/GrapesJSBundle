@@ -1,0 +1,4 @@
+HackOro\GrapesJSBundle\Entity\GrapesJSPage:
+    properties:
+        organization:
+            - NotBlank: ~

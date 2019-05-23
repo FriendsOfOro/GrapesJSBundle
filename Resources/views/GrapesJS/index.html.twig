@@ -1,0 +1,15 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+{% set gridName = 'grapesjs-grid' %}
+{% set pageTitle = 'hackoro.grapes_js.entity_plural_label'|trans %}
+
+{% block navButtons %}
+    {% if is_granted('hackoro_grapesjs_page_create') %}
+        <div class="btn-group">
+            {{ UI.addButton({
+                'path': path('hackoro_grapesjs_page_create'),
+                'entity_label': 'hackoro.grapes_js.entity_label'|trans
+            }) }}
+        </div>
+    {% endif %}
+{% endblock %}

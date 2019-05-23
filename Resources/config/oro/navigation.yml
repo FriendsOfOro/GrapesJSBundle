@@ -1,0 +1,13 @@
+navigation:
+    menu_config:
+        items:
+            grapesjs_link:
+                label: hackoro.grapes_js.entity_plural_label
+                route: hackoro_grapesjs_page_index
+        tree:
+            application_menu:
+                children:
+                    marketing_tab:
+                        merge_strategy: append
+                        children:
+                            grapesjs_link: ~

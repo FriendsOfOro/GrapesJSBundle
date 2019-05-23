@@ -1,0 +1,6 @@
+config:
+    paths:
+        'grapesjs/image-editor': 'https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js'
+        'grapesjs/filestack': 'https://static.filestackapi.com/v3/filestack-0.1.10.js'
+        'grapesjs': 'https://unpkg.com/grapesjs@0.14.61/dist/grapes'
+        'grapesjs/editor-component': 'bundles/hackorograpesjs/js/app/components/grapesjs-editor-component.js'

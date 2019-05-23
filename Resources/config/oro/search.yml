@@ -1,0 +1,15 @@
+search:
+    HackOro\GrapesJSBundle\Entity\GrapesJSPage:
+        alias:                          hackoro_grapesjs_page
+        label:                          hackoro.grapes_js.entity_plural_label
+        title_fields:                   [title]
+        route:
+            name:                       hackoro_grapesjs_page_view
+            parameters:
+                id:                     id
+        search_template:                HackOroGrapesJSBundle:GrapesJS:searchResult.html.twig
+        fields:
+            -
+                name:                   title
+                target_type:            text
+                target_fields:          [title]

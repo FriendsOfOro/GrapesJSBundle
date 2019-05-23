@@ -1,0 +1,18 @@
+{% block title_widget -%}
+    {% spaceless %}
+        <title>{{ value }}</title>
+    {% endspaceless %}
+{% endblock %}
+
+{% block _grapesjs_page_content_widget %}
+    {% set attr = attr|merge({
+        class: attr.class|default('') ~ " gjs-page"
+    }) %}
+    <style type="text/css">
+        {{ css|raw }}
+    </style>
+    <div{{ block('block_attributes') }}>
+        {{ content|raw }}
+    </div>
+
+{% endblock %}

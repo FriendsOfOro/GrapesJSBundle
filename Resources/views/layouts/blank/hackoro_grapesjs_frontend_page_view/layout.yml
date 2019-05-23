@@ -1,0 +1,23 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+            themes: 'HackOroGrapesJSBundle:layouts:blank/hackoro_grapesjs_frontend_page_view/layout.html.twig'
+        - '@setOption':
+            id: title
+            optionName: params
+            optionValue:
+                '%title%': '=data["page"].getTitle()'
+        - '@setOption':
+            id: page_title
+            optionName: defaultValue
+            optionValue: '=data["page"].getTitle()'
+        - '@addTree':
+            items:
+                grapesjs_page_content:
+                    blockType: grapesjs_page_content_block
+                    options:
+                        content: '=data["page"].getContent()'
+                        css: '=data["page"].getCss()'
+            tree:
+                page_content:
+                    grapesjs_page_content: ~

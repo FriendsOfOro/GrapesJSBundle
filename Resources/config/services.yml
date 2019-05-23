@@ -1,0 +1,42 @@
+services:
+  hackoro_grapesjs.content_variant_type.grapes_js:
+    class: HackOro\GrapesJSBundle\ContentVariantType\GrapesJSContentVariantType
+    public: false
+    arguments:
+      - '@property_accessor'
+    tags:
+      - { name: oro_web_catalog.content_variant_type }
+
+  hackoro_grapesjs.form.type.page:
+    class: HackOro\GrapesJSBundle\Form\Type\GrapesJSPageType
+    calls:
+      - [setDataClass, [HackOro\GrapesJSBundle\Entity\GrapesJSPage]]
+    tags:
+      - { name: form.type, alias: hackoro_grapesjs_page }
+
+  hackoro_grapesjs.form.type.page_select:
+    class: HackOro\GrapesJSBundle\Form\Type\GrapesJSPageSelectType
+    tags:
+      - { name: form.type, alias: hackoro_grapesjs_page_select }
+
+  hackoro_grapesjs.form.type.grapesjs_page_content_variant:
+    class: HackOro\GrapesJSBundle\Form\Type\GrapesJSPageVariantType
+    tags:
+      - { name: form.type, alias: hackoro_grapesjs_page_variant }
+
+  hackoro_grapesjs.form.autocomplete.grapesjs_page.search_handler:
+    public: false
+    parent: oro_form.autocomplete.search_handler
+    arguments:
+      - HackOro\GrapesJSBundle\Entity\GrapesJSPage
+      - [ "title" ]
+    tags:
+      - { name: oro_form.autocomplete.search_handler, alias: HackOro\GrapesJSBundle\Form\Type\GrapesJSPageType, acl_resource: hackoro_grapesjs_page_view }
+
+  hackoro_grapesjs.layout.block_type.grapesjs_page_content_block:
+    parent: oro_layout.block_type.abstract_configurable
+    calls:
+      - [setOptionsConfig, [{content: {required: true},css: {required: true}}]]
+      - [setName, ['grapesjs_page_content_block']]
+    tags:
+      - { name: layout.block_type, alias: grapesjs_page_content_block }
