@@ -2,7 +2,11 @@
 ==============================
 A demo implementation of the [GrapesJS Page Builder](https://grapesjs.com) for the Oro platform.
 
-**NOTE: This demonstration Bundle is unsupported and is currently unsuitable for Production use**
+**~~NOTE: This demonstration Bundle is unsupported and is currently unsuitable for Production use~~**
+
+**NOTE: Development of the GrapesJS Page Builder has been migrated to Oro Core as of 4.1**
+
+Refer to: https://oroinc.com/b2b-ecommerce/blog/updates-to-orocommerce-4-1-rc
 
 Video demonstration:
 
